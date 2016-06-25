@@ -11,7 +11,6 @@ import retrofit.http.GET;
  * Created by Esteban on 18/6/2016.
  */
 public interface LaberintoService {
-    @GET("laberintos/")
-        //public Call<List<Laberinto>> getPeliculas(@Path("tituloContiene") String tituloContiene);
-    Call<List<Laberinto>> getLaberintos();
+    @GET("laberintos")
+    public Call<List<Laberinto>> getLaberintos();
 }

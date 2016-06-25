@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GatoEncerrado.iml" filepath="$PROJECT_DIR$/GatoEncerrado.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gato-encerrado-REST.iml" filepath="$PROJECT_DIR$/gato-encerrado-REST.iml" />
     </modules>
   </component>
 </project>

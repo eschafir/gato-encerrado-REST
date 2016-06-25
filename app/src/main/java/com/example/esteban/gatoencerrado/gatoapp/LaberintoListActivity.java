@@ -43,10 +43,10 @@ public class LaberintoListActivity extends AppCompatActivity implements Laberint
     }
 
     public void mostrarInventario(View view) {
-        Toast.makeText(this, "Abrir inventario", Toast.LENGTH_SHORT).show();
+       /* Toast.makeText(this, "Abrir inventario", Toast.LENGTH_SHORT).show();
         Intent listaItems = new Intent(this, InventarioListActivity.class);
         listaItems.putExtra(LaberintoDetailFragment.ARG_ITEM_ID, "laberintoTest");
 
-        startActivity(listaItems);
+        startActivity(listaItems);*/
     }
 }
