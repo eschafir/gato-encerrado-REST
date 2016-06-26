@@ -33,13 +33,12 @@ public class InventarioListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.invetario_layout);
 
-        TextView titulo = (TextView) findViewById(R.id.tituloInventario);
-        titulo.setText("Inventario");
+        TextView lblTitulo = (TextView) findViewById(R.id.lblTituloInventario);
+        lblTitulo.setText("Inventario");
 
-        String BASE_URL = "http://192.168.1.40:9000/";
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(LaberintoListFragment.getBaseUrl())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
