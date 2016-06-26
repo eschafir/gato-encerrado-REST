@@ -27,8 +27,12 @@ public class LaberintoListFragment extends ListFragment implements View.OnClickL
 
 
     private Callbacks mCallbacks = sDummyCallbacks;
-
+    private static String BASE_URL = "http://192.168.10.105:9000/";
     private LaberintoService laberintoService;
+
+    public static String getBaseUrl() {
+        return BASE_URL;
+    }
 
     @Override
     public void onClick(View v) {
@@ -52,8 +56,6 @@ public class LaberintoListFragment extends ListFragment implements View.OnClickL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        String BASE_URL = "http://192.168.1.40:9000/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

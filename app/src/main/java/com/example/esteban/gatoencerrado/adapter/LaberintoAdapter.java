@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.esteban.gatoencerrado.R;
+import com.example.esteban.gatoencerrado.gatoapp.LaberintoListFragment;
 import com.example.esteban.gatoencerrado.model.Laberinto;
 import com.squareup.picasso.Picasso;
 
@@ -36,10 +37,10 @@ public class LaberintoAdapter extends ArrayAdapter<Laberinto> {
         View rowView = inflater.inflate(R.layout.laberinto_row, parent, false);
         final Laberinto laberinto = getItem(position);
 
-        String URL_PHOTOS = "http://192.168.1.40:9000/images/";
+        //String URL_PHOTOS = "http://192.168.1.40:9000/images/";
         ImageView imageView = (ImageView) rowView.findViewById(R.id.imgLab);
         Picasso.with(getContext())
-                .load(URL_PHOTOS + laberinto.getPath())
+                .load(LaberintoListFragment.getBaseUrl() + "images/" + laberinto.getPath())
                 .into(imageView);
 
         TextView tvLaberinto = (TextView) rowView.findViewById(R.id.lblLaberinto);
