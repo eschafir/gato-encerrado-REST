@@ -1,5 +1,6 @@
 package com.example.esteban.gatoencerrado.service;
 
+import com.example.esteban.gatoencerrado.model.Item;
 import com.example.esteban.gatoencerrado.model.Laberinto;
 
 import java.util.List;
@@ -12,5 +13,8 @@ import retrofit.http.GET;
  */
 public interface LaberintoService {
     @GET("laberintos")
-    public Call<List<Laberinto>> getLaberintos();
+    Call<List<Laberinto>> getLaberintos();
+
+    @GET("inventario")
+    Call<List<Item>> getInventario();
 }

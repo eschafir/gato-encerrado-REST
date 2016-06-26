@@ -1,4 +1,3 @@
-/*
 package com.example.esteban.gatoencerrado.gatoapp;
 
 import android.os.Bundle;
@@ -9,13 +8,10 @@ import android.widget.TextView;
 
 import com.example.esteban.gatoencerrado.R;
 import com.example.esteban.gatoencerrado.adapter.ItemAdapter;
-import com.example.esteban.gatoencerrado.repo.RepoLaberintos;
 
-*/
 /**
  * Created by Esteban on 25/6/2016.
- *//*
-
+ */
 public class InventarioListActivity extends AppCompatActivity {
 
     private ListView list;
@@ -33,8 +29,7 @@ public class InventarioListActivity extends AppCompatActivity {
 
 
         list = (ListView) findViewById(R.id.listview);
-        ListAdapter adaptador = new ItemAdapter(this, RepoLaberintos.getInstance().getListaItems(null, 10));
-        list.setAdapter(adaptador);
+//        ListAdapter adaptador = new ItemAdapter(this, RepoLaberintos.getInstance().getListaItems(null, 10));
+//        list.setAdapter(adaptador);
     }
 }
-*/

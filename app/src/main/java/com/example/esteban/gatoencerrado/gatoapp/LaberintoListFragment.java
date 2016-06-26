@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.esteban.gatoencerrado.adapter.LaberintoAdapter;
@@ -24,14 +23,17 @@ import retrofit.Retrofit;
 /**
  * Created by Esteban on 18/6/2016.
  */
-public class LaberintoListFragment extends ListFragment {
+public class LaberintoListFragment extends ListFragment implements View.OnClickListener {
 
 
     private Callbacks mCallbacks = sDummyCallbacks;
-    Laberinto laberintoSeleccionado;
-    ListView listView;
 
     private LaberintoService laberintoService;
+
+    @Override
+    public void onClick(View v) {
+
+    }
 
     public interface Callbacks {
         void onItemSelected(Laberinto laberinto);
@@ -51,7 +53,7 @@ public class LaberintoListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String BASE_URL = "http://192.168.10.105:7000/";
+        String BASE_URL = "http://192.168.1.40:7000/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -59,30 +61,23 @@ public class LaberintoListFragment extends ListFragment {
                 .build();
 
         laberintoService = retrofit.create(LaberintoService.class);
-        Call<List<Laberinto>> LaberintoCall = laberintoService.getLaberintos();
 
-        LaberintoCall.enqueue(new Callback<List<Laberinto>>() {
+        Call<List<Laberinto>> peliculaCall = laberintoService.getLaberintos();
+
+        peliculaCall.enqueue(new Callback<List<Laberinto>>() {
             @Override
             public void onResponse(Response<List<Laberinto>> response, Retrofit retrofit) {
                 List<Laberinto> laberintos = response.body();
+
                 setListAdapter(new LaberintoAdapter(
                         getActivity(),
                         laberintos));
-
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> pariente, View view, int posicion, long id) {
-                        laberintoSeleccionado = (Laberinto) pariente.getItemAtPosition(posicion);
-
-                        Log.i("", laberintoSeleccionado.getNombre());
-
-                    }
-                });
             }
 
             @Override
             public void onFailure(Throwable t) {
                 t.printStackTrace();
+                Log.e("LaberitoList", t.getMessage());
             }
         });
     }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.esteban.gatoencerrado.R;
 import com.example.esteban.gatoencerrado.model.Laberinto;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Esteban on 19/6/2016.
@@ -60,9 +61,16 @@ public class LaberintoDetailFragment extends Fragment implements View.OnClickLis
 
         // Show the dummy content as text in a TextView.
         if (laberinto != null) {
-            ImageView imgLaberinto = ((ImageView) rootView.findViewById(R.id.imgLaberinto));
-            imgLaberinto.setImageDrawable(getResources().getDrawable(laberinto.getPath()));
+
             ((TextView) rootView.findViewById(R.id.laberinto_descripcion)).setText(laberinto.getDescripcion());
+
+            String URL_PHOTOS = "http://192.168.1.40:7000/images/";
+            ImageView imageView = (ImageView) rootView.findViewById(R.id.imgLaberinto);
+            Picasso.with(getContext())
+                    .load(URL_PHOTOS + laberinto.getPath())
+                    .resize(1000, 700)
+                    .centerCrop()
+                    .into(imageView);
         }
 
         return rootView;

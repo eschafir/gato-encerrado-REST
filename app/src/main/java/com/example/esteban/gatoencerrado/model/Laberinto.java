@@ -10,7 +10,7 @@ public class Laberinto implements Serializable {
     Long id;
     String nombre;
     String descripcion;
-    int path;
+    String path;
 
     public Long getId() {
         return id;
@@ -36,23 +36,23 @@ public class Laberinto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public int getPath() {
+    public String getPath() {
         return path;
     }
 
-    public void setPath(int path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
 
-    public Laberinto(String nombre, int path) {
+    public Laberinto(String nombre, String path) {
         this.id = new Random().nextLong();
         this.nombre = nombre;
         this.descripcion = "";
         this.path = path;
     }
 
-    public Laberinto(String nombre, String descripcion, int path) {
+    public Laberinto(String nombre, String descripcion, String path) {
         this.id = new Random().nextLong();
         this.nombre = nombre;
         this.descripcion = descripcion;
