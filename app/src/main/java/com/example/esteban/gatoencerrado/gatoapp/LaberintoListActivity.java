@@ -22,12 +22,9 @@ public class LaberintoListActivity extends AppCompatActivity implements Laberint
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laberinto_app_bar);
 
-        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        // toolbar.setTitle(getTitle());
-
         TextView lblTitulo = (TextView) findViewById(R.id.lblTitulo);
         lblTitulo.setText("Laberintos Disponibles");
+
         Button boton = (Button) findViewById(R.id.laberinto_inventario);
         boton.setText("Gestionar Inventario");
     }

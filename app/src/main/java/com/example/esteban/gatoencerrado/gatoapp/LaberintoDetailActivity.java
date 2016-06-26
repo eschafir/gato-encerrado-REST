@@ -15,9 +15,6 @@ public class LaberintoDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
-        //TextView lblTitulo = (TextView)findViewById(R.id.lblTitulo);
-        //lblTitulo.setText(laberinto.getNombre());
-
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
@@ -32,12 +29,4 @@ public class LaberintoDetailActivity extends AppCompatActivity {
         }
     }
 
-/*    public void mostrarInventario(View view) {
-
-        Toast.makeText(this, "Abrir inventario", Toast.LENGTH_SHORT).show();
-        Intent listaItems = new Intent(this, InventarioListActivity.class);
-        listaItems.putExtra(LaberintoDetailFragment.ARG_ITEM_ID, "laberintoTest");
-
-        startActivity(listaItems);
-    }*/
 }

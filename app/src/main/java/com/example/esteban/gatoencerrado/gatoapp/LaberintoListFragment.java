@@ -30,6 +30,7 @@ public class LaberintoListFragment extends ListFragment implements View.OnClickL
     private static String BASE_URL = "http://192.168.10.105:9000/";
     private LaberintoService laberintoService;
 
+
     public static String getBaseUrl() {
         return BASE_URL;
     }
