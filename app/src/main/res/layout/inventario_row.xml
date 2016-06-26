@@ -10,7 +10,7 @@
         android:layout_height="60dp"
         android:layout_margin="5px"
         android:gravity="center_vertical"
-        android:text="@+id/label"
+        android:text="@+id/labelI"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large">
     </TextView>
 

@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.esteban.gatoencerrado.R;
 import com.example.esteban.gatoencerrado.model.Laberinto;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,6 +35,12 @@ public class LaberintoAdapter extends ArrayAdapter<Laberinto> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.laberinto_row, parent, false);
         final Laberinto laberinto = getItem(position);
+
+        String URL_PHOTOS = "http://192.168.1.40:9000/images/";
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.imgLab);
+        Picasso.with(getContext())
+                .load(URL_PHOTOS + laberinto.getPath())
+                .into(imageView);
 
         TextView tvLaberinto = (TextView) rowView.findViewById(R.id.lblLaberinto);
         tvLaberinto.setText(laberinto.getNombre().toString());

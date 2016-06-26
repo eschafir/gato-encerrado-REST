@@ -53,7 +53,7 @@ public class LaberintoListFragment extends ListFragment implements View.OnClickL
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String BASE_URL = "http://192.168.1.40:7000/";
+        String BASE_URL = "http://192.168.1.40:9000/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -62,9 +62,9 @@ public class LaberintoListFragment extends ListFragment implements View.OnClickL
 
         laberintoService = retrofit.create(LaberintoService.class);
 
-        Call<List<Laberinto>> peliculaCall = laberintoService.getLaberintos();
+        Call<List<Laberinto>> laberintoCall = laberintoService.getLaberintos();
 
-        peliculaCall.enqueue(new Callback<List<Laberinto>>() {
+        laberintoCall.enqueue(new Callback<List<Laberinto>>() {
             @Override
             public void onResponse(Response<List<Laberinto>> response, Retrofit retrofit) {
                 List<Laberinto> laberintos = response.body();

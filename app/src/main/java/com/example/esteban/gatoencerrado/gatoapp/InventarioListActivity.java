@@ -8,6 +8,15 @@ import android.widget.TextView;
 
 import com.example.esteban.gatoencerrado.R;
 import com.example.esteban.gatoencerrado.adapter.ItemAdapter;
+import com.example.esteban.gatoencerrado.model.Item;
+import com.example.esteban.gatoencerrado.service.LaberintoService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
 
 /**
  * Created by Esteban on 25/6/2016.
@@ -15,8 +24,8 @@ import com.example.esteban.gatoencerrado.adapter.ItemAdapter;
 public class InventarioListActivity extends AppCompatActivity {
 
     private ListView list;
-    private String[] items = {"Ubuntu", "Android", "iOS", "Windows", "Mac OSX",
-            "Google Chrome OS", "Debian", "Mandriva", "Solaris", "Unix"};
+    private LaberintoService laberintoService;
+    private List<Item> itemsH = new ArrayList<Item>();
 
 
     @Override
@@ -27,9 +36,25 @@ public class InventarioListActivity extends AppCompatActivity {
         TextView titulo = (TextView) findViewById(R.id.tituloInventario);
         titulo.setText("Inventario");
 
+        String BASE_URL = "http://192.168.1.40:9000/";
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        laberintoService = retrofit.create(LaberintoService.class);
+        Call<List<Item>> inventarioCall = laberintoService.getInventario();
+
+        /**
+         * INVENTARIO HARDCODEADO
+         */
+        itemsH.add(new Item("Pala"));
+        itemsH.add(new Item("Mochila"));
+        itemsH.add(new Item("Llaves"));
         list = (ListView) findViewById(R.id.listview);
-//        ListAdapter adaptador = new ItemAdapter(this, RepoLaberintos.getInstance().getListaItems(null, 10));
-//        list.setAdapter(adaptador);
+        ListAdapter adaptador = new ItemAdapter(this, itemsH);
+        list.setAdapter(adaptador);
+
     }
 }
